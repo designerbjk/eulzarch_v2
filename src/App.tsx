@@ -2,10 +2,12 @@ import React from 'react';
 import { Routes, Route } from 'react-router';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
-// import CompanyPage from './pages/CompanyPage'; // Example for other pages
-// import BusinessPage from './pages/BusinessPage';
+import Company from './pages/Company';
+import Business from './pages/Business';
 // import ProjectGalleryPage from './pages/ProjectGalleryPage';
 // ... other page imports
+
+import { ProjectGallery } from './components/ProjectGallery';
 
 // Placeholder components for other pages
 const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
@@ -15,15 +17,14 @@ const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
   </div>
 );
 
-
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="company" element={<PlaceholderPage title="Company" />} />
-        <Route path="business" element={<PlaceholderPage title="Business" />} />
-        <Route path="project/gallery" element={<PlaceholderPage title="Project Gallery" />} />
+        <Route path="company" element={<Company />} />
+        <Route path="business" element={<Business />} />
+        <Route path="project/gallery" element={<ProjectGallery />} />
         <Route path="project/movie" element={<PlaceholderPage title="Project Movie" />} />
         <Route path="customer" element={<PlaceholderPage title="Customer" />} />
         {/* Add other routes here */}
