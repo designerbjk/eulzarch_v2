@@ -15,7 +15,7 @@ const Business: React.FC = () => {
             <img
               src="/images/business-img.png"
               alt="Business Architecture"
-              className="w-full h-full object-cover rounded-xl shadow-2xl"
+              className="w-full h-full"
             />
           </div>
         </div>
