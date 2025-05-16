@@ -6,76 +6,155 @@ const AboutSection: React.FC = () => {
 
   const tabContents: Record<string, React.ReactNode> = {
     analysis: (
-      <>
-        <figure className="mb-4">
-          <img src="/img/about-card.png" alt="조사분석 관련 아이콘 및 다이어그램" className="mx-auto h-32" />
-        </figure>
-        <p>FEASIBILITY STUDY</p>
-        <p>설비현황분석</p>
-        <p>프로그램 개발</p>
-        <p>CASE STUDY</p>
-      </>
+      <div className="flex flex-col space-y-4">
+        <div
+          className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1532370778713-1400f3d62094?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=800&auto=format&fit=crop)' }}
+          aria-label="조사분석 도면 및 설계 분석 예시 (Unsplash)"
+        >
+          <span className="sr-only">조사분석 도면 및 설계 분석 예시 (Unsplash)</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 p-4 text-white">
+            <h4 className="text-xl font-bold">조사분석</h4>
+            <p className="text-sm opacity-90">Architectural Analysis</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold text-blue-600">FEASIBILITY STUDY</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">설비현황분석</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">프로그램 개발</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">CASE STUDY</p>
+          </div>
+        </div>
+      </div>
     ),
     design: (
-      <>
-        <figure className="mb-4">
-          <img src="/img/about-card2.png" alt="설계 및 감리 관련 다양한 건축물 유형 아이콘" className="mx-auto h-32" />
-        </figure>
-        <dl className="mb-1"><dt className="font-semibold">종교시설</dt><dd>서비스시설</dd></dl>
-        <dl className="mb-1"><dt className="font-semibold">생산 . 유통 . 판매 . 교통시설</dt><dd>산업시설</dd></dl>
-        {/* ... more dl/dt/dd ... */}
-      </>
+      <div className="flex flex-col space-y-4">
+        <div
+          className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1620374476350-b7c1eabcc131?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=600&q=80)' }}
+          aria-label="설계 및 감리 현대 건축물 (Unsplash)"
+        >
+          <span className="sr-only">설계 및 감리 현대 건축물 (Unsplash)</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 p-4 text-white">
+            <h4 className="text-xl font-bold">설계 & 감리</h4>
+            <p className="text-sm opacity-90">Design & Supervision</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <dl>
+              <dt className="font-semibold text-blue-600">종교시설</dt>
+              <dd className="text-gray-600">서비스시설</dd>
+            </dl>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <dl>
+              <dt className="font-semibold text-blue-600">생산 · 유통 · 판매 · 교통시설</dt>
+              <dd className="text-gray-600">산업시설</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
     ),
     maintenance: (
-      <>
-        <figure className="mb-4">
-          <img src="/img/about-card3.png" alt="유지보수 및 리노베이션 관련 아이콘" className="mx-auto h-32" />
-        </figure>
-        <p>증축 . 개축 . 재축</p>
-        <p>용도변경</p>
-        <p>개보수(대수선)</p>
-        <p>리노베이션</p>
-      </>
+      <div className="flex flex-col space-y-4">
+        <div
+          className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&w=600&q=80)' }}
+          aria-label="유지보수 및 리노베이션 현장 (Unsplash)"
+        >
+          <span className="sr-only">유지보수 및 리노베이션 현장 (Unsplash)</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 p-4 text-white">
+            <h4 className="text-xl font-bold">유지관리</h4>
+            <p className="text-sm opacity-90">Maintenance & Renovation</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">증축 · 개축 · 재축</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">용도변경</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">개보수(대수선)</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <p className="font-semibold">리노베이션</p>
+          </div>
+        </div>
+      </div>
     ),
   };
 
   return (
-    <section id="about" aria-labelledby="about-title" className="py-12">
+    <section id="about" aria-labelledby="about-title" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="sec-tit mb-8 text-center md:text-left" data-aos="fade-right">
-          <span className="block w-10 h-1 bg-blue-600 mb-2 mx-auto md:mx-0"></span>
-          <div className="h3-tit">
-            <h3 id="about-title" className="text-3xl font-bold text-gray-800">ABOUT US</h3>
-            <p className="text-gray-600">을지엔지니어링 종합건축사사무소는 최고의실적을 보유하고 있습니다.</p>
+        {/* Hero Section */}
+        <div className="relative mb-16 overflow-hidden rounded-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-600/80 z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1955&auto=format&fit=crop" 
+            alt="Modern architectural building exterior" 
+            className="absolute inset-0 w-full h-full object-cover" 
+          />
+          <div className="relative z-20 py-16 px-6 md:px-12 text-white max-w-3xl">
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-500/30 text-sm font-medium mb-4">EULZI ARCHITECTURE</span>
+            <h2 id="about-title" className="text-4xl md:text-5xl font-bold mb-4">ABOUT US</h2>
+            <p className="text-lg md:text-xl opacity-90 mb-8">을지엔지니어링 종합건축사사무소는 최고의실적을 보유하고 있습니다.</p>
+            <Link to="/company" className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors">
+              자세히 보기 <span className="ml-2">→</span>
+            </Link>
           </div>
         </div>
 
-        <article className="flex flex-col lg:flex-row gap-8">
-          <figure data-aos="fade-up" className="lg:w-1/2">
-            <img src="/img/about-bg.png" alt="현대적이고 세련된 사무실 내부 전경" className="rounded-lg shadow-lg w-full h-auto object-cover" />
-          </figure>
-          <div className="tab lg:w-1/2" data-aos="fade-left">
-            <ul className="tab-btn flex border-b mb-6" role="tablist">
+        {/* Services Section */}
+        <div className="mb-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <div data-aos="fade-right">
+              <span className="block w-12 h-1 bg-blue-600 mb-3"></span>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">Our Services</h3>
+            </div>
+            <p className="text-gray-600 max-w-xl mt-2 md:mt-0" data-aos="fade-left">다양한 분야에서 전문적인 서비스를 제공합니다</p>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+            <div className="flex border-b">
               {[
-                { id: 'analysis', label: '조사분석' },
-                { id: 'design', label: '설계&감리ㆍ부동산' },
-                { id: 'maintenance', label: '유지관리' },
+                { id: 'analysis', label: '조사분석', icon: '🔍' },
+                { id: 'design', label: '설계&감리ㆍ부동산', icon: '✏️' },
+                { id: 'maintenance', label: '유지관리', icon: '🔧' },
               ].map(tab => (
-                <li key={tab.id} className={`${activeTab === tab.id ? 'border-blue-600 border-b-2' : ''} -mb-px mr-1`} role="presentation">
-                  <button
-                    role="tab"
-                    aria-selected={activeTab === tab.id}
-                    aria-controls={`tabpanel-${tab.id}`}
-                    id={`tab-${tab.id}`}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`py-2 px-4 font-semibold hover:text-blue-600 focus:outline-none ${activeTab === tab.id ? 'text-blue-600' : 'text-gray-500'}`}
-                  >
-                    {tab.label}
-                  </button>
-                </li>
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  aria-controls={`tabpanel-${tab.id}`}
+                  id={`tab-${tab.id}`}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex-1 py-4 px-4 text-center font-medium transition-colors focus:outline-none ${activeTab === tab.id 
+                    ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/50' 
+                    : 'text-gray-600 hover:text-blue-500 hover:bg-gray-50'}`}
+                >
+                  <span className="hidden md:inline mr-2">{tab.icon}</span>
+                  {tab.label}
+                </button>
               ))}
-            </ul>
-            <div className="content-area text-center p-4 bg-gray-50 rounded-lg shadow" data-aos="fade-left" data-aos-delay="200">
+            </div>
+
+            {/* Tab Content */}
+            <div className="p-6">
               {Object.keys(tabContents).map(tabId => (
                 <div
                   key={tabId}
@@ -88,14 +167,8 @@ const AboutSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="more-btn text-center mt-6">
-              <Link to="/company" className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors">
-                MORE <span className="visually-hidden"> 회사 소개 더보기</span>
-                {/* <div><span></span></div> */}
-              </Link>
-            </div>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   );

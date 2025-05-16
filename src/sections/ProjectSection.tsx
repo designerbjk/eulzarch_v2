@@ -5,21 +5,38 @@ import ProjectCard from '../components/ProjectCard';
 const projects = [
   {
     category: "산업시설/기타",
-    imageSrc: "http://www.eulz.co.kr/data/file/gallery/thumb-a3f2447881ba64169afeb3f67ebf25a4_RDxwjzfl_aff4fea505fb8ec1c43b4f682a946a552a0707ac_322x282.jpg",
+    imageSrc: "/images/1.jpg",
     imageAlt: "봉평면 재산리 금당마을 류경희 아트갤러리 조감도",
     title: "봉평면 재산리 금당마을 \"류경희 아트갤러리…",
     type: "신축",
     area: "지하1층,지상2층",
-    link: "/project/detail/86" // Example link
+    link: "/project/detail/86"
   },
-  // Add more project objects...
   {
     category: "주상복합/공동주택",
-    imageSrc: "http://www.eulz.co.kr/data/file/gallery/thumb-4c4b08fe55623176187a5ab3bc3edeaa_Vn3tRQ2Y_c9c5366d33bbfb4c1c912382402b0dbcc22dee33_322x282.jpg",
+    imageSrc: "/images/2.jpg",
     imageAlt: "화양동 오피스텔, 도시형생활주택, 근린생활시설 조감도",
     title: "2021	화양동 오피스텔,도시형생활주택,근…",
     type: "신축",
     area: "지하2층 지상12층 4,400㎡",
+    link: "/project/detail/22"
+  },
+  {
+    category: "일반상업분야/업무시설",
+    imageSrc: "/images/3.png",
+    imageAlt: "양주시 덕계동 근린생활시설",
+    title: "2023 양주시 덕계동 678-3외 3필지",
+    type: "근린생활시설, 도시형생활주택(단지형연립주택)",
+    area: "4633.95㎡ 지하1층 지상4층",
+    link: "/project/detail/22"
+  },
+  {
+    category: "종교시설",
+    imageSrc: "/images/4.jpg",
+    imageAlt: "와동제일교회",
+    title: "2010 와동제일교회",
+    type: "대한예수교 장로회",
+    area: "지하1층 ,지상5층 1497평㎡",
     link: "/project/detail/22"
   },
 ];

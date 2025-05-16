@@ -44,7 +44,11 @@ const MainVisualSection: React.FC = () => {
   };
 
   return (
-    <section id="main-visual" aria-label="메인 비주얼 슬라이더" className="relative h-[400px]">
+    <section 
+      id="main-visual" 
+      aria-label="메인 비주얼 슬라이더" 
+      className="relative h-[800px] overflow-hidden"
+    >
       <Slider {...settings} className="mvsw h-full">
         {slides.map((slide, index) => (
           <div key={index} className="h-full relative">

@@ -14,10 +14,10 @@ const Header: React.FC = () => {
   // The original classes like 'headerwrap', 'gnb' would need to be styled via CSS or more Tailwind.
   return (
     <header id="header" className="bg-white shadow-md">
-      <div className="headerwrap container mx-auto flex items-center justify-between p-4">
+      <div className="headerwrap container mx-auto flex items-center justify-between p-2">
         <h1 className="logo">
           <Link to="/">
-            <img src="/img/logo.png" alt="을지엔지니어링 종합건축사사무소 로고" className="h-10" />
+            <img src="/logo/logo.svg" alt="을지엔지니어링 종합건축사사무소 로고" className="h-16" />
           </Link>
         </h1>
         <nav aria-label="메인 네비게이션" className="hidden md:block">

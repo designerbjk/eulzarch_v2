@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-wrap justify-between items-center">
           <div className="logo mb-4 md:mb-0">
             <figure>
-              <img src="/img/footer-logo.png" alt="을지엔지니어링 종합건축사사무소 하단 로고" className="h-8" />
+              <img src="/logo/logo.svg" alt="을지엔지니어링 종합건축사사무소 하단 로고" className="h-16 filter invert" />
             </figure>
           </div>
           <div className="address text-sm mb-4 md:mb-0">
@@ -23,23 +23,7 @@ const Footer: React.FC = () => {
             </ul>
             <p>© EULJI ALL RIGHT RESERVED (주)을지엔지니어링 종합건축사사무소</p>
           </div>
-          <ul className="sns flex space-x-3" aria-label="소셜 미디어 링크">
-            <li>
-              <a href="https://facebook.com/your-page-url" target="_blank" rel="noopener noreferrer" aria-label="페이스북 바로가기" className="hover:text-white">
-                <img src="/img/ico-sns-facebook.png" alt="페이스북 아이콘" className="w-6 h-6" />
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/your-profile-url" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 바로가기" className="hover:text-white">
-                <img src="/img/ico-sns-instagram.png" alt="인스타그램 아이콘" className="w-6 h-6" />
-              </a>
-            </li>
-            <li>
-              <a href="https://youtube.com/your-channel-url" target="_blank" rel="noopener noreferrer" aria-label="유튜브 바로가기" className="hover:text-white">
-                <img src="/img/ico-sns-youtube.png" alt="유튜브 아이콘" className="w-6 h-6" />
-              </a>
-            </li>
-          </ul>
+          
         </div>
       </div>
     </footer>

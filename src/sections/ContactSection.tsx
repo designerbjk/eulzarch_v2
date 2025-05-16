@@ -80,20 +80,20 @@ const ContactSection: React.FC = () => {
                 <label htmlFor="wr_content" className="block text-sm font-medium text-gray-700 mb-1">MESSAGE</label>
                 <textarea name="wr_content" id="wr_content" value={formData.wr_content} onChange={handleChange} required rows={4} className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
               </div>
+              <div>
+                <button type="submit" className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">Send</button>
+              </div>
             </div>
 
-            <div className="right lg:w-1/2" data-aos="fade-left">
+            <div className="right lg:w-1/2 flex items-stretch" data-aos="fade-left">
               <iframe
+                className="w-full h-96 lg:h-auto rounded-md"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d395.59267428524214!2d127.0434279403134!3d37.51401705998875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca40b3cbdc56b%3A0x54d51d419a46da86!2z7J2E7KeA7JeU7KeA64uI7Ja066eB7KKF7ZWp6rG07LaV7IKs7IKs66y07IaM!5e0!3m2!1sko!2skr!4v1685518521475!5m2!1sko!2skr"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="을지엔지니어링 종합건축사사무소 위치 지도"
-                className="w-full h-64 lg:h-full border-0 rounded-md"
               ></iframe>
-            </div>
-            <div className="submit-btn lg:col-span-2 text-center mt-6 lg:w-full">
-              <button type="submit" className="px-8 py-3 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors">SEND</button>
             </div>
           </form>
         </div>
