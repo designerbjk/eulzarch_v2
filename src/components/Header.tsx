@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                 </ul>
               )}
             </li>
-            <li><Link to="/customer" className="hover:text-blue-600">CUSTOMER</Link></li>
+            <li><Link to="/contact" className="hover:text-blue-600">CONTACT</Link></li>
             <li><a href="https://blog.naver.com/eulzarch" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">BLOG</a></li>
           </ul>
         </nav>
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
               )}
             </li>
 
-            <li><Link to="/customer" className="block py-2 hover:text-blue-600" onClick={toggleMobileMenu}>CUSTOMER</Link></li>
+            <li><Link to="/contact" className="block py-2 hover:text-blue-600" onClick={toggleMobileMenu}>CONTACT</Link></li>
             <li><a href="https://blog.naver.com/eulzarch" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-blue-600" onClick={toggleMobileMenu}>BLOG</a></li>
           </ul>
         </nav>
