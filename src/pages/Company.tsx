@@ -1,5 +1,103 @@
 import React from 'react';
 
+interface DepartmentBoxProps {
+  title: string;
+  className?: string;
+}
+
+const DepartmentBox = ({ title, className = '' }: DepartmentBoxProps) => (
+  <div
+    className={`bg-neutral-800 text-neutral-200 py-2.5 px-3.5 rounded-sm border-t-2 border-amber-500 
+      w-64 sm:w-72 md:w-80
+      text-center text-xs sm:text-sm whitespace-normal leading-tight ${className}`}
+  >
+    {title.split('\n').map((line, i) => (
+      <React.Fragment key={i}>
+        {i > 0 && <br />}
+        {line}
+      </React.Fragment>
+    ))}
+  </div>
+);
+
+// Main Organizational Chart Component
+const OrganizationalChart = () => {
+  const ceoCircleSize = "w-36 h-36 md:w-40 md:h-40";
+  const advisoryCircleSize = "w-28 h-28 md:w-32 md:h-32"; // Smaller than before
+  const midLevelCircleSize = "w-28 h-28 md:w-32 md:h-32";
+
+  return (
+    <div className="bg-white min-h-screen flex flex-col items-center py-10 sm:py-16 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
+
+      {/* CEO and Advisory Section with better balance */}
+      <div className="relative w-full flex justify-center pl-[60%] mt-10 sm:mt-16 md:mt-20">
+        {/* CEO Node - Centered with its outer ring */}
+        <div className="relative flex-shrink-0">
+          <div className="absolute inset-[-10px] sm:inset-[-12px] border-2 border-amber-500 rounded-full opacity-60 z-0"></div>
+          <div className={`${ceoCircleSize} bg-yellow-400 text-black rounded-full flex flex-col items-center justify-center relative z-10 p-1 shadow-xl`}>
+            <span className="text-lg md:text-xl font-bold">대표이사</span>
+            <span className="text-sm md:text-base">(CEO)</span>
+          </div>
+        </div>
+        
+        {/* Advisory Group Node - positioned to the right and aligned vertically */}
+        <div className="flex items-center ml-10 sm:ml-16 md:ml-24">
+          <div className="w-12 sm:w-16 md:w-20 h-px border-t-2 border-dotted border-amber-500 mx-2"></div>
+          <div className={`${advisoryCircleSize} bg-amber-600 bg-opacity-70 text-black rounded-full flex-shrink-0 flex items-center justify-center text-center p-1 shadow-lg`}>
+            <span className="text-sm md:text-base font-semibold">관련자문단</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Vertical line from CEO structure downwards - better connected */}
+      <div className="w-px h-12 sm:h-16 md:h-20 border-l-2 border-dotted border-amber-500 ml-[30%]"></div>
+
+      {/* Horizontal line for the main T-junction */}
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-px border-t-2 border-dotted border-amber-500 ml-[30%]"></div>
+
+      {/* Mid-Level Nodes: 소장 and 관리본부 */}
+      <div className="flex flex-col md:flex-row justify-around w-full max-w-2xl lg:max-w-4xl mt-[-1px]"> {/* mt-[-1px] to connect flush with the T-junction line */}
+
+        {/* 소장 Branch */}
+        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
+          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-amber-500"></div> {/* Connector up to horizontal line */}
+          <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
+            <span className="text-base md:text-lg font-semibold">소장</span>
+          </div>
+          <div className="w-px h-6 sm:h-8 md:h-10 border-l-2 border-dotted border-neutral-500"></div> {/* Connector down to departments */}
+          <div className="space-y-2 sm:space-y-2.5 mt-2 sm:mt-3">
+            <DepartmentBox title="설계/감리 사업본부" />
+            <DepartmentBox title="건축설계1팀" />
+            <DepartmentBox title="건축설계2팀" />
+            <DepartmentBox title="인테리어 리모델링팀" />
+          </div>
+        </div>
+
+        {/* 관리본부 Branch */}
+        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
+          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-amber-500"></div> {/* Connector up to horizontal line */}
+          <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
+            <span className="text-base md:text-lg font-semibold">관리본부</span>
+          </div>
+          <div className="w-px h-6 sm:h-8 md:h-10 border-l-2 border-dotted border-neutral-500"></div> {/* Connector down to departments */}
+          {/* Departments under 관리본부 - stacked vertically */}
+          <div className="flex flex-col items-center space-y-2 mt-2 sm:mt-3">
+            <DepartmentBox title="지구단위 계획팀" />
+            <DepartmentBox title="해외사업부" />
+            <DepartmentBox title="경영지원팀" />
+            <DepartmentBox title="금융지원팀" />
+            <DepartmentBox 
+              title="사업타당성 조사 및
+마케팅지원팀" 
+              className="text-xs py-3" 
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Company: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
@@ -47,12 +145,7 @@ const Company: React.FC = () => {
         </div>
 
         <div className="flex justify-center">
-          <img
-            src="/images/Organizational.png"
-            alt="조직도"
-            className="max-w-full h-auto border rounded shadow-md"
-            style={{ maxHeight: '600px' }}
-          />
+          <OrganizationalChart />
         </div>
       </section>
     </div>
