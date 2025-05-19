@@ -7,10 +7,16 @@ const Footer: React.FC = () => {
     <footer id="footer" className="bg-gray-800 text-gray-300 py-8">
       <div className="inner container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
-          <div className="logo mb-4 md:mb-0">
+          <div className="logo mb-4 md:mb-0 flex items-center">
             <figure>
               <img src="/logo/logo.svg" alt="을지엔지니어링 종합건축사사무소 하단 로고" className="h-16 filter invert" />
             </figure>
+            <div className="ml-4 pl-4 border-l border-gray-500">
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-gray-200">엔지니어링 종합건축사사무소</span>
+                <span className="text-xs text-gray-400">부동산 개발 시행사</span>
+              </div>
+            </div>
           </div>
           <div className="address text-sm mb-4 md:mb-0">
             <ul className="mb-2">

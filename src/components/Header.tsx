@@ -13,9 +13,15 @@ const Header: React.FC = () => {
   return (
     <header id="header" className="bg-white shadow-md">
       <div className="headerwrap container mx-auto flex items-center justify-between p-2">
-        <h1 className="logo">
-          <Link to="/">
+        <h1 className="logo flex items-center">
+          <Link to="/" className="flex items-center">
             <img src="/logo/logo.svg" alt="을지엔지니어링 종합건축사사무소 로고" className="h-16" />
+            <div className="ml-4 pl-4 border-l border-gray-300">
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-gray-800">엔지니어링 종합건축사사무소</span>
+                <span className="text-xs text-gray-600">부동산 개발 시행사</span>
+              </div>
+            </div>
           </Link>
         </h1>
         <nav aria-label="메인 네비게이션" className="hidden md:block">
