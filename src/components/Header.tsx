@@ -3,11 +3,9 @@ import { Link } from 'react-router';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isProjectDropdownOpen, setIsProjectDropdownOpen] = useState(false);
   const [isMobileProjectDropdownOpen, setIsMobileProjectDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const toggleProjectDropdown = () => setIsProjectDropdownOpen(!isProjectDropdownOpen);
   const toggleMobileProjectDropdown = () => setIsMobileProjectDropdownOpen(!isMobileProjectDropdownOpen);
 
   // Basic Tailwind classes are used for demonstration.
@@ -24,17 +22,15 @@ const Header: React.FC = () => {
           <ul className="gnb flex space-x-4">
             <li><Link to="/company" className="hover:text-blue-600">COMPANY</Link></li>
             <li><Link to="/business" className="hover:text-blue-600">BUSINESS</Link></li>
-            <li className="relative">
-              <button onClick={toggleProjectDropdown} className="hover:text-blue-600 flex items-center">
+            <li className="relative group">
+              <div className="hover:text-blue-600 flex items-center cursor-pointer">
                 PROJECT
-                <svg className={`w-4 h-4 ml-1 transform transition-transform ${isProjectDropdownOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-              </button>
-              {isProjectDropdownOpen && (
-                <ul className="depth2 absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-10">
-                  <li><Link to="/project/gallery" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">건축설계사례</Link></li>
-                  <li><Link to="/project/movie" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">홍보영상</Link></li>
-                </ul>
-              )}
+                <svg className="w-4 h-4 ml-1 transform transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+              </div>
+              <ul className="depth2 absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-10 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <li><Link to="/project/gallery" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">건축설계사례</Link></li>
+                <li><Link to="/project/movie" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">홍보영상</Link></li>
+              </ul>
             </li>
             <li><Link to="/contact" className="hover:text-blue-600">CONTACT</Link></li>
             <li><a href="https://blog.naver.com/eulzarch" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">BLOG</a></li>

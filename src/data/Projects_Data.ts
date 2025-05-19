@@ -27,15 +27,9 @@ export const categoryToSlug: Record<ProjectCategory, string> = {
   '인테리어': 'interior'
 };
 
-// Import all images from the project_img directory (both jpg and png)
-const jpgImages = import.meta.glob('/public/project_img/*.jpg', { eager: true }) as Record<string, { default: string }>;
-const pngImages = import.meta.glob('/public/project_img/*.png', { eager: true }) as Record<string, { default: string }>;
-
 // Helper function to get image URL by ID
 const getImageUrl = (id: string): string => {
-  const jpgPath = `/public/project_img/${id}.jpg`;
-  const pngPath = `/public/project_img/${id}.png`;
-  return jpgImages[jpgPath]?.default || pngImages[pngPath]?.default || '';
+  return `/project_img/${id}.jpg`;
 };
 
 export const projects_data: Project[] = [

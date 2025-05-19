@@ -12,9 +12,6 @@ const WhatBannerSection: React.FC = () => {
       data-aos-duration="1000"
       data-aos-easing="ease-in-sine"
     >
-      <figure className="absolute inset-0 opacity-20">
-        <img src="/img/whatweare.png" alt="을지엔지니어링 팀원들이 협업하는 모습" className="w-full h-full object-cover" />
-      </figure>
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="banner-txt">
           <h5 id="what-banner-title" className="text-3xl font-bold mb-4">WHAT WE ARE?</h5>
@@ -25,7 +22,7 @@ const WhatBannerSection: React.FC = () => {
             D.BASE된 첨단 CAD의 과학적인 프로세스를 통하여<span className="md:inline hidden"> </span><span className="block md:hidden"></span>건축 토탈시스템을 구축하였습니다.
           </p>
           <a
-            href="/img/about_us.zip"
+            href="https://drive.google.com/file/d/15MYB9Kd-YcxAhp3C2rXS3QIVtjRcSjvN/view?usp=sharing"
             download
             className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors"
           >

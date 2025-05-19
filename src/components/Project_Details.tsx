@@ -32,7 +32,9 @@ const ProjectDetails: React.FC = () => {
 
       for (const path in allSubImages) {
         if (path.startsWith(projectImagesPathPrefix)) {
-          projectImages.push(allSubImages[path].default);
+          // Remove the /public prefix from the image URL
+          const imageUrl = allSubImages[path].default.replace('/public', '');
+          projectImages.push(imageUrl);
         }
       }
 

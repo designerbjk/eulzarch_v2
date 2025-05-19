@@ -7,7 +7,8 @@ import Business from './pages/Business';
 import Contact from './pages/Contact';
 
 import { ProjectGallery } from './components/ProjectGallery';
-import ProjectDetails from './components/Project_Details'; // Import the new component
+import ProjectDetails from './components/Project_Details';
+import ProjectMovie from './components/ProjectMovie';
 
 // Placeholder components for other pages
 const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
@@ -30,7 +31,7 @@ function App() {
           <Route path="gallery" element={<ProjectGallery />} />
           {/* Project detail page using slug */}
           <Route path="gallery/:projectSlug" element={<ProjectDetails />} />
-          <Route path="movie" element={<PlaceholderPage title="Project Movie" />} />
+          <Route path="movie" element={<ProjectMovie />} />
         </Route>
         <Route path="contact" element={<Contact />} />
         {/* Add other routes here */}

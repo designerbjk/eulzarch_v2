@@ -47,7 +47,7 @@ const MainVisualSection: React.FC = () => {
     <section 
       id="main-visual" 
       aria-label="메인 비주얼 슬라이더" 
-      className="relative h-[800px] overflow-hidden"
+      className="relative h-[400px] sm:h-[600px] md:h-[800px] overflow-hidden"
     >
       <Slider {...settings} className="mvsw h-full">
         {slides.map((slide, index) => (
@@ -57,14 +57,14 @@ const MainVisualSection: React.FC = () => {
                 <img
                   src={slide.imgSrc}
                   alt={slide.altText}
-                  className="w-full h-full max-w-full max-h-full object-contain"
+                  className="w-full h-full max-w-full max-h-full object-cover"
                 />
               </figure>
               <div
-                className={`mvtxt absolute inset-0 flex flex-col items-center justify-center text-center text-white p-8 bg-black bg-opacity-50 ${slide.textClass}`}
+                className={`mvtxt absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 sm:p-6 md:p-8 bg-black bg-opacity-50 ${slide.textClass}`}
               >
-                <h2 className="text-4xl font-bold mb-4" dangerouslySetInnerHTML={{ __html: slide.title }} />
-                <p className="text-lg" dangerouslySetInnerHTML={{ __html: slide.description }} />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4" dangerouslySetInnerHTML={{ __html: slide.title }} />
+                <p className="text-sm sm:text-base md:text-lg px-4 sm:px-8 md:px-16" dangerouslySetInnerHTML={{ __html: slide.description }} />
               </div>
             </a>
           </div>
