@@ -42,6 +42,14 @@ const projects = [
 ];
 
 const ProjectSection: React.FC = () => {
+  // Function to handle click on the More button
+  const handleMoreClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section id="project" aria-labelledby="project-title" className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -74,6 +82,7 @@ const ProjectSection: React.FC = () => {
           <Link
             to="/project/gallery"
             className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
+            onClick={handleMoreClick}
           >
             MORE <span className="visually-hidden"> 프로젝트 더보기</span>
             {/* Decorative div/span, can be styled or removed */}
