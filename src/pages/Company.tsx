@@ -30,7 +30,7 @@ const OrganizationalChart = () => {
     <div className="bg-white min-h-screen flex flex-col items-center py-10 sm:py-16 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
 
       {/* CEO and Advisory Section with better balance */}
-      <div className="relative w-full flex justify-center pl-[60%] mt-10 sm:mt-16 md:mt-20">
+      <div className="relative w-full flex justify-center pl-[30%] pb-[3%] mt-10 sm:mt-16 md:mt-20">
         {/* CEO Node - Centered with its outer ring */}
         <div className="relative flex-shrink-0">
           <div className="absolute inset-[-10px] sm:inset-[-12px] border-2 border-amber-500 rounded-full opacity-60 z-0"></div>
@@ -40,12 +40,12 @@ const OrganizationalChart = () => {
           </div>
         </div>
         
-        {/* Advisory Group Node - positioned to the right and aligned vertically */}
-        <div className="flex items-center ml-10 sm:ml-16 md:ml-24">
-          <div className="w-12 sm:w-16 md:w-20 h-px border-t-2 border-dotted border-amber-500 mx-2"></div>
+        {/* Advisory Group Node - positioned to the left and aligned vertically */}
+        <div className="flex items-center absolute left-[20%] top-1/2 transform -translate-y-1/2">
           <div className={`${advisoryCircleSize} bg-amber-600 bg-opacity-70 text-black rounded-full flex-shrink-0 flex items-center justify-center text-center p-1 shadow-lg`}>
             <span className="text-sm md:text-base font-semibold">관련자문단</span>
           </div>
+          <div className="w-12 sm:w-16 md:w-20 h-px border-t-2 border-dotted border-amber-500 mx-2"></div>
         </div>
       </div>
 
