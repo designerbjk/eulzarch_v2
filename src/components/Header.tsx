@@ -1,17 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProjectDropdownOpen, setIsMobileProjectDropdownOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleMobileProjectDropdown = () => setIsMobileProjectDropdownOpen(!isMobileProjectDropdownOpen);
 
+  // Add scroll event listener to detect when to make the header sticky
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   // Basic Tailwind classes are used for demonstration.
   // The original classes like 'headerwrap', 'gnb' would need to be styled via CSS or more Tailwind.
   return (
-    <header id="header" className="bg-white shadow-md">
+    <header id="header" className={`bg-white shadow-md w-full ${isSticky ? 'sticky top-0 z-40' : ''}`}>
       <div className="headerwrap container mx-auto flex items-center justify-between p-2">
         <h1 className="logo flex items-center">
           <Link to="/" className="flex items-center">
@@ -58,7 +75,7 @@ const Header: React.FC = () => {
       </div>
       {/* Mobile Navigation */}
       <div
-        className={`mgnb_wrap md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white shadow-lg absolute w-full z-20`}
+        className={`mgnb_wrap md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white shadow-lg fixed top-0 left-0 w-full h-screen overflow-y-auto z-50`}
         id="mobile-navigation"
         aria-hidden={!isMobileMenuOpen}
       >

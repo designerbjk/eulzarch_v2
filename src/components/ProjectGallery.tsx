@@ -102,10 +102,14 @@ export const ProjectGallery = ({ projects = projects_data }: ProjectGalleryProps
           pageCount={pageCount}
           onPageChange={handlePageChange}
           containerClassName="flex justify-center gap-2 items-center my-8"
-          pageClassName="px-3 py-1 rounded hover:bg-gray-200 text-gray-700" // Added text color
-          previousClassName="px-3 py-1 rounded hover:bg-gray-200 text-gray-700" // Added text color
-          nextClassName="px-3 py-1 rounded hover:bg-gray-200 text-gray-700" // Added text color
-          activeClassName="bg-blue-600 text-white font-semibold" // Added font-semibold
+          pageClassName="rounded text-gray-700 text-lg min-w-[40px] text-center overflow-hidden" // Container for page buttons
+          pageLinkClassName="block px-4 py-2 w-full h-full hover:bg-gray-200" // This makes the entire area clickable
+          previousClassName="rounded text-gray-700 text-lg overflow-hidden" // Container for previous button
+          previousLinkClassName="block px-4 py-2 hover:bg-gray-200" // This makes the entire area clickable
+          nextClassName="rounded text-gray-700 text-lg overflow-hidden" // Container for next button
+          nextLinkClassName="block px-4 py-2 hover:bg-gray-200" // This makes the entire area clickable
+          activeClassName="bg-blue-600 text-white font-semibold" // Style for active page
+          activeLinkClassName="hover:bg-blue-600" // Prevent hover color change on active button
           disabledClassName="text-gray-400 cursor-not-allowed"
           breakClassName="px-3 py-1" // Style for break label (...)
         />
