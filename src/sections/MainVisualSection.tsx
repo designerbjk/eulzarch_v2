@@ -47,7 +47,7 @@ const MainVisualSection: React.FC = () => {
     <section 
       id="main-visual" 
       aria-label="메인 비주얼 슬라이더" 
-      className="relative h-[400px] sm:h-[600px] md:h-[800px] overflow-hidden"
+      className="relative h-[400px] sm:h-[550px] md:h-[700px] overflow-hidden"
     >
       <Slider {...settings} className="mvsw h-full">
         {slides.map((slide, index) => (
@@ -61,7 +61,7 @@ const MainVisualSection: React.FC = () => {
                 />
               </figure>
               <div
-                className={`mvtxt absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 sm:p-6 md:p-10 lg:p-12 bg-black bg-opacity-50 ${slide.textClass}`}
+                className={`mvtxt absolute inset-0 flex flex-col items-center justify-start pt-16 sm:pt-24 md:pt-32 lg:pt-40 text-center text-white p-4 sm:p-6 md:p-10 lg:p-12 bg-black bg-opacity-50 ${slide.textClass}`}
               >
                 <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 md:mb-6 lg:mb-8 max-w-5xl" dangerouslySetInnerHTML={{ __html: slide.title }} />
                 <p className="text-sm sm:text-base md:text-xl lg:text-2xl px-4 sm:px-8 md:px-16 lg:px-24 max-w-6xl" dangerouslySetInnerHTML={{ __html: slide.description }} />

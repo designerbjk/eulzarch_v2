@@ -24,6 +24,8 @@ const WhatBannerSection: React.FC = () => {
           <a
             href="https://drive.google.com/file/d/15MYB9Kd-YcxAhp3C2rXS3QIVtjRcSjvN/view?usp=sharing"
             download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors"
           >
             회사소개 다운로드

@@ -27,10 +27,10 @@ const OrganizationalChart = () => {
   const midLevelCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center py-10 sm:py-16 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
+    <div className="bg-white min-h-screen flex flex-col items-center py-4 sm:py-8 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
 
       {/* CEO and Advisory Section with better balance */}
-      <div className="relative w-full flex justify-center pl-[35%] sm:pl-[30%] pb-[3%] mt-10 sm:mt-16 md:mt-20">
+      <div className="relative w-full flex justify-center pl-[35%] sm:pl-[30%] pb-[3%] mt-4 sm:mt-8 md:mt-10">
         {/* CEO Node - Centered with its outer ring */}
         <div className="relative flex-shrink-0">
           <div className="absolute inset-[-8px] sm:inset-[-10px] md:inset-[-12px] border-2 border-blue-500 rounded-full opacity-60 z-0"></div>
@@ -137,8 +137,8 @@ const Company: React.FC = () => {
 
       {/* Organization Section */}
       <section className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-4">COMPANY | 조직도</h2>
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold mb-2">COMPANY | 조직도</h2>
           <p className="text-lg text-gray-700">
             구성원의 성취감과 자부심으로 성장하는 건축전문집단
           </p>

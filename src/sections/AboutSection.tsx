@@ -109,7 +109,7 @@ const AboutSection: React.FC = () => {
             className="absolute inset-0 w-full h-full object-cover" 
           />
           <div className="relative z-20 py-16 px-6 md:px-12 text-white max-w-3xl">
-            <span className="inline-block px-4 py-1 rounded-full bg-blue-500/30 text-sm font-medium mb-4">EULZI ARCHITECTURE</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-500/30 text-sm font-medium mb-4">EULZI Engineering</span>
             <h2 id="about-title" className="text-4xl md:text-5xl font-bold mb-4">ABOUT US</h2>
             <p className="text-lg md:text-xl opacity-90 mb-8">을지엔지니어링 종합건축사사무소는 최고의실적을 보유하고 있습니다.</p>
             <Link 

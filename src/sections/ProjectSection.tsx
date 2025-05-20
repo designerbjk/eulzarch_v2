@@ -51,7 +51,7 @@ const ProjectSection: React.FC = () => {
   };
 
   return (
-    <section id="project" aria-labelledby="project-title" className="py-12 bg-gray-50">
+    <section id="project" aria-labelledby="project-title" className="pt-6 pb-10 md:pt-4 lg:pt-8 bg-gray-50">
       <div className="container mx-auto px-4">
         <div
           className="sec-tit mb-8 text-center md:text-left"
