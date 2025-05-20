@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; // Changed to react-router-dom
 import ProjectCard from '../components/ProjectCard';
 
 const projects = [
@@ -7,7 +7,7 @@ const projects = [
     category: "산업시설/기타",
     imageSrc: "/images/1.jpg",
     imageAlt: "봉평면 재산리 금당마을 류경희 아트갤러리 조감도",
-    title: "봉평면 재산리 금당마을 \"류경희 아트갤러리…",
+    title: "봉평면 재산리 금당마유 \"류경희 아트갤러리…",
     type: "신축",
     area: "지하1층,지상2층",
     link: "/project/gallery/gallery-86"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; // Changed to react-router-dom
 
 const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState('analysis'); // 'analysis', 'design', 'maintenance'

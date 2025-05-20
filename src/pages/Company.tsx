@@ -20,51 +20,112 @@ const DepartmentBox = ({ title, className = '' }: DepartmentBoxProps) => (
   </div>
 );
 
-// Main Organizational Chart Component
+// Helper for Circle Nodes
+interface CircleNodeProps {
+  title: string;
+  subtitle?: string;
+  sizeClasses: string;
+  bgClasses: string;
+  textClasses?: string;
+  hasOuterRing?: boolean;
+  outerRingColor?: string;
+}
+
+const CircleNode: React.FC<CircleNodeProps> = ({ 
+  title, subtitle, sizeClasses, bgClasses, textClasses = "text-white", hasOuterRing, outerRingColor = "border-blue-500" 
+}) => (
+  <div className={`relative flex-shrink-0 ${hasOuterRing ? 'p-1.5 sm:p-2 md:p-2.5' : ''}`}> {/* Padding for outer ring */}
+    {hasOuterRing && (
+      <div className={`absolute inset-0 border-2 ${outerRingColor} rounded-full opacity-60 z-0`}></div>
+    )}
+    <div className={`${sizeClasses} ${bgClasses} ${textClasses} rounded-full flex flex-col items-center justify-center relative z-10 p-1 shadow-xl`}>
+      <span className="text-sm sm:text-base md:text-lg font-bold">{title}</span>
+      {subtitle && <span className="text-xs sm:text-sm md:text-base">{subtitle}</span>}
+    </div>
+  </div>
+);
+
+// Helper for Connector Lines
+interface ConnectorLineProps {
+  orientation: 'vertical' | 'horizontal';
+  length?: string; // e.g., 'h-16', 'w-full'
+  thickness?: string; // e.g., 'border-l-2', 'border-t-2'
+  color?: string; // e.g., 'border-blue-500'
+  dotted?: boolean;
+}
+
+const ConnectorLine: React.FC<ConnectorLineProps> = ({ 
+  orientation, length, thickness = 'border-2', color = 'border-blue-500', dotted = true 
+}) => {
+  const baseClasses = `${thickness} ${color} ${dotted ? 'border-dotted' : ''}`;
+  if (orientation === 'vertical') {
+    return <div className={`w-px ${length || 'h-12'} ${baseClasses.replace(thickness, thickness.replace('-2', '-l-2'))}`}></div>;
+  }
+  return <div className={`h-px ${length || 'w-16'} ${baseClasses.replace(thickness, thickness.replace('-2', '-t-2'))}`}></div>;
+};
+
+
+// Main Organizational Chart Component - Refactored
 const OrganizationalChart = () => {
   const ceoCircleSize = "w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40";
-  const advisoryCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32"; // Smaller than before
+  const advisoryCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
   const midLevelCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center py-4 sm:py-8 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
+    <div className="bg-white min-h-screen flex flex-col items-center py-4 sm:py-8 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 w-full">
 
-      {/* CEO and Advisory Section with better balance */}
-      <div className="relative w-full flex justify-center pl-[35%] sm:pl-[30%] pb-[3%] mt-4 sm:mt-8 md:mt-10">
-        {/* CEO Node - Centered with its outer ring */}
-        <div className="relative flex-shrink-0">
-          <div className="absolute inset-[-8px] sm:inset-[-10px] md:inset-[-12px] border-2 border-blue-500 rounded-full opacity-60 z-0"></div>
-          <div className={`${ceoCircleSize} bg-blue-400 text-white rounded-full flex flex-col items-center justify-center relative z-10 p-1 shadow-xl`}>
-            <span className="text-base sm:text-lg md:text-xl font-bold">대표이사</span>
-            <span className="text-xs sm:text-sm md:text-base">(CEO)</span>
-          </div>
+      {/* Top Section: Advisory and CEO */}
+      <div className="flex items-center justify-center w-full max-w-2xl lg:max-w-3xl mb-4 sm:mb-6 md:mb-8">
+        {/* Advisory Group */}
+        <div className="flex flex-col items-center"> {/* Wrapper for potential future elements under advisory */}
+           <CircleNode 
+            title="관련자문단" 
+            sizeClasses={advisoryCircleSize} 
+            bgClasses="bg-blue-600 bg-opacity-70"
+          />
         </div>
+
+        <ConnectorLine orientation="horizontal" length="w-8 sm:w-12 md:w-16 mx-2 sm:mx-4" />
         
-        {/* Advisory Group Node - positioned to the left and aligned vertically */}
-        <div className="flex items-center absolute left-[5%] sm:left-[15%] md:left-[20%] top-1/2 transform -translate-y-1/2">
-          <div className={`${advisoryCircleSize} bg-blue-600 bg-opacity-70 text-white rounded-full flex-shrink-0 flex items-center justify-center text-center p-1 shadow-lg`}>
-            <span className="text-xs sm:text-sm md:text-base font-semibold">관련자문단</span>
-          </div>
-          <div className="w-8 sm:w-12 md:w-16 lg:w-20 h-px border-t-2 border-dotted border-blue-500 mx-2"></div>
+        {/* CEO */}
+        <div className="flex flex-col items-center"> {/* Wrapper for CEO and its connector line downwards */}
+          <CircleNode 
+            title="대표이사" 
+            subtitle="(CEO)" 
+            sizeClasses={ceoCircleSize} 
+            bgClasses="bg-blue-400"
+            hasOuterRing
+          />
+        </div>
+      </div>
+      
+      {/* Connector from CEO area downwards, leading to the T-junction */}
+      <div className="flex justify-center w-full"> {/* Centering the vertical line */}
+        <div className="flex flex-col items-center" style={{ marginLeft: `calc((${advisoryCircleSize.match(/\d+/)?.[0] || '0'}px / 2) + (${('w-8').match(/\d+/)?.[0] || '0'}px / 2) + 8px)` }}> {/* Approximate offset to align under CEO */}
+          <ConnectorLine orientation="vertical" length="h-8 sm:h-10 md:h-12" />
         </div>
       </div>
 
-      {/* Vertical line from CEO structure downwards - better connected */}
-      <div className="w-px h-12 sm:h-16 md:h-20 border-l-2 border-dotted border-blue-500 ml-[35%] sm:ml-[30%]"></div>
 
-      {/* Horizontal line for the main T-junction */}
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-px border-t-2 border-dotted border-blue-500 ml-[35%] sm:ml-[30%]"></div>
+      {/* Horizontal T-junction line */}
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl"> {/* Control width of T line */}
+         <ConnectorLine orientation="horizontal" length="w-full" />
+      </div>
+      
 
-      {/* Mid-Level Nodes: 소장 and 관리본부 */}
-      <div className="flex flex-col md:flex-row justify-around w-full max-w-2xl lg:max-w-4xl mt-[-1px] px-2 sm:px-0"> {/* mt-[-1px] to connect flush with the T-junction line */}
-
+      {/* Mid-Level Branches: 소장 and 관리본부 */}
+      <div className="flex flex-row justify-around w-full max-w-xl lg:max-w-3xl mt-[-1px]"> {/* mt-[-1px] to connect flush */}
+        
         {/* 소장 Branch */}
-        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
-          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-blue-500"></div> {/* Connector up to horizontal line */}
-          <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
-            <span className="text-base md:text-lg font-semibold">소장</span>
-          </div>
-          <div className="w-px h-6 sm:h-8 md:h-10 border-l-2 border-dotted border-neutral-500"></div> {/* Connector down to departments */}
+        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4">
+          <ConnectorLine orientation="vertical" length="h-6 sm:h-8 md:h-10" />
+          <CircleNode 
+            title="소장" 
+            sizeClasses={midLevelCircleSize} 
+            bgClasses="bg-neutral-300"
+            textClasses="text-black"
+          />
+          <ConnectorLine orientation="vertical" length="h-4 sm:h-6 md:h-8" color="border-neutral-500" />
           <div className="space-y-2 sm:space-y-2.5 mt-2 sm:mt-3">
             <DepartmentBox title="설계/감리 사업본부" />
             <DepartmentBox title="건축설계1팀" />
@@ -74,13 +135,15 @@ const OrganizationalChart = () => {
         </div>
 
         {/* 관리본부 Branch */}
-        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
-          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-blue-500"></div> {/* Connector up to horizontal line */}
-          <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
-            <span className="text-base md:text-lg font-semibold">관리본부</span>
-          </div>
-          <div className="w-px h-6 sm:h-8 md:h-10 border-l-2 border-dotted border-neutral-500"></div> {/* Connector down to departments */}
-          {/* Departments under 관리본부 - stacked vertically */}
+        <div className="flex flex-col items-center px-2 sm:px-3 md:px-4">
+          <ConnectorLine orientation="vertical" length="h-6 sm:h-8 md:h-10" />
+          <CircleNode 
+            title="관리본부" 
+            sizeClasses={midLevelCircleSize} 
+            bgClasses="bg-neutral-300"
+            textClasses="text-black"
+          />
+          <ConnectorLine orientation="vertical" length="h-4 sm:h-6 md:h-8" color="border-neutral-500" />
           <div className="flex flex-col items-center space-y-2 mt-2 sm:mt-3">
             <DepartmentBox title="지구단위 계획팀" />
             <DepartmentBox title="해외사업부" />
@@ -98,10 +161,11 @@ const OrganizationalChart = () => {
   );
 };
 
+
 const Company: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
-      {/* CEO Message Section */}
+      {/* CEO Message Section (remains the same) */}
       <section className="mb-16">
         <h1 className="text-3xl font-bold mb-8 text-center">CEO 인사말</h1>
         <div className="max-w-3xl mx-auto space-y-6 text-gray-700">
@@ -136,7 +200,7 @@ const Company: React.FC = () => {
       </section>
 
       {/* Organization Section */}
-      <section className="max-w-4xl mx-auto">
+      <section className="max-w-5xl mx-auto"> {/* Increased max-width for better chart display */}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold mb-2">COMPANY | 조직도</h2>
           <p className="text-lg text-gray-700">

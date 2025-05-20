@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { Link } from 'react-router'; // Import Link
+import { Link } from 'react-router'; // Changed to react-router-dom
 import type { Project, ProjectCategory } from '../data/Projects_Data';
 import { projects_data } from '../data/Projects_Data';
 
