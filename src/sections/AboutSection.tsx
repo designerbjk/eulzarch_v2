@@ -112,7 +112,13 @@ const AboutSection: React.FC = () => {
             <span className="inline-block px-4 py-1 rounded-full bg-blue-500/30 text-sm font-medium mb-4">EULZI ARCHITECTURE</span>
             <h2 id="about-title" className="text-4xl md:text-5xl font-bold mb-4">ABOUT US</h2>
             <p className="text-lg md:text-xl opacity-90 mb-8">을지엔지니어링 종합건축사사무소는 최고의실적을 보유하고 있습니다.</p>
-            <Link to="/company" className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors">
+            <Link 
+              to="/company" 
+              className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-md hover:bg-gray-100 transition-colors"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
               자세히 보기 <span className="ml-2">→</span>
             </Link>
           </div>

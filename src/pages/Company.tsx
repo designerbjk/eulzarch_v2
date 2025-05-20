@@ -7,7 +7,7 @@ interface DepartmentBoxProps {
 
 const DepartmentBox = ({ title, className = '' }: DepartmentBoxProps) => (
   <div
-    className={`bg-neutral-800 text-neutral-200 py-2.5 px-3.5 rounded-sm border-t-2 border-amber-500 
+    className={`bg-neutral-800 text-neutral-200 py-2.5 px-3.5 rounded-sm border-t-2 border-blue-500 
       w-64 sm:w-72 md:w-80
       text-center text-xs sm:text-sm whitespace-normal leading-tight ${className}`}
   >
@@ -22,45 +22,45 @@ const DepartmentBox = ({ title, className = '' }: DepartmentBoxProps) => (
 
 // Main Organizational Chart Component
 const OrganizationalChart = () => {
-  const ceoCircleSize = "w-36 h-36 md:w-40 md:h-40";
-  const advisoryCircleSize = "w-28 h-28 md:w-32 md:h-32"; // Smaller than before
-  const midLevelCircleSize = "w-28 h-28 md:w-32 md:h-32";
+  const ceoCircleSize = "w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40";
+  const advisoryCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32"; // Smaller than before
+  const midLevelCircleSize = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
 
   return (
     <div className="bg-white min-h-screen flex flex-col items-center py-10 sm:py-16 px-4 font-['Malgun_Gothic',_sans-serif] text-neutral-200 max-w-full">
 
       {/* CEO and Advisory Section with better balance */}
-      <div className="relative w-full flex justify-center pl-[30%] pb-[3%] mt-10 sm:mt-16 md:mt-20">
+      <div className="relative w-full flex justify-center pl-[35%] sm:pl-[30%] pb-[3%] mt-10 sm:mt-16 md:mt-20">
         {/* CEO Node - Centered with its outer ring */}
         <div className="relative flex-shrink-0">
-          <div className="absolute inset-[-10px] sm:inset-[-12px] border-2 border-amber-500 rounded-full opacity-60 z-0"></div>
-          <div className={`${ceoCircleSize} bg-yellow-400 text-black rounded-full flex flex-col items-center justify-center relative z-10 p-1 shadow-xl`}>
-            <span className="text-lg md:text-xl font-bold">대표이사</span>
-            <span className="text-sm md:text-base">(CEO)</span>
+          <div className="absolute inset-[-8px] sm:inset-[-10px] md:inset-[-12px] border-2 border-blue-500 rounded-full opacity-60 z-0"></div>
+          <div className={`${ceoCircleSize} bg-blue-400 text-white rounded-full flex flex-col items-center justify-center relative z-10 p-1 shadow-xl`}>
+            <span className="text-base sm:text-lg md:text-xl font-bold">대표이사</span>
+            <span className="text-xs sm:text-sm md:text-base">(CEO)</span>
           </div>
         </div>
         
         {/* Advisory Group Node - positioned to the left and aligned vertically */}
-        <div className="flex items-center absolute left-[20%] top-1/2 transform -translate-y-1/2">
-          <div className={`${advisoryCircleSize} bg-amber-600 bg-opacity-70 text-black rounded-full flex-shrink-0 flex items-center justify-center text-center p-1 shadow-lg`}>
-            <span className="text-sm md:text-base font-semibold">관련자문단</span>
+        <div className="flex items-center absolute left-[5%] sm:left-[15%] md:left-[20%] top-1/2 transform -translate-y-1/2">
+          <div className={`${advisoryCircleSize} bg-blue-600 bg-opacity-70 text-white rounded-full flex-shrink-0 flex items-center justify-center text-center p-1 shadow-lg`}>
+            <span className="text-xs sm:text-sm md:text-base font-semibold">관련자문단</span>
           </div>
-          <div className="w-12 sm:w-16 md:w-20 h-px border-t-2 border-dotted border-amber-500 mx-2"></div>
+          <div className="w-8 sm:w-12 md:w-16 lg:w-20 h-px border-t-2 border-dotted border-blue-500 mx-2"></div>
         </div>
       </div>
 
       {/* Vertical line from CEO structure downwards - better connected */}
-      <div className="w-px h-12 sm:h-16 md:h-20 border-l-2 border-dotted border-amber-500 ml-[30%]"></div>
+      <div className="w-px h-12 sm:h-16 md:h-20 border-l-2 border-dotted border-blue-500 ml-[35%] sm:ml-[30%]"></div>
 
       {/* Horizontal line for the main T-junction */}
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-px border-t-2 border-dotted border-amber-500 ml-[30%]"></div>
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-px border-t-2 border-dotted border-blue-500 ml-[35%] sm:ml-[30%]"></div>
 
       {/* Mid-Level Nodes: 소장 and 관리본부 */}
-      <div className="flex flex-col md:flex-row justify-around w-full max-w-2xl lg:max-w-4xl mt-[-1px]"> {/* mt-[-1px] to connect flush with the T-junction line */}
+      <div className="flex flex-col md:flex-row justify-around w-full max-w-2xl lg:max-w-4xl mt-[-1px] px-2 sm:px-0"> {/* mt-[-1px] to connect flush with the T-junction line */}
 
         {/* 소장 Branch */}
         <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
-          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-amber-500"></div> {/* Connector up to horizontal line */}
+          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-blue-500"></div> {/* Connector up to horizontal line */}
           <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
             <span className="text-base md:text-lg font-semibold">소장</span>
           </div>
@@ -75,7 +75,7 @@ const OrganizationalChart = () => {
 
         {/* 관리본부 Branch */}
         <div className="flex flex-col items-center px-2 sm:px-3 md:px-4 pt-0">
-          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-amber-500"></div> {/* Connector up to horizontal line */}
+          <div className="w-px h-8 sm:h-10 md:h-12 border-l-2 border-dotted border-blue-500"></div> {/* Connector up to horizontal line */}
           <div className={`${midLevelCircleSize} bg-neutral-300 text-black rounded-full flex items-center justify-center text-center p-1 my-2 sm:my-3 shadow-md`}>
             <span className="text-base md:text-lg font-semibold">관리본부</span>
           </div>

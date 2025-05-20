@@ -3,28 +3,24 @@ import { useParams, Link } from 'react-router';
 import { projects_data } from '../data/Projects_Data';
 import type { Project } from '../data/Projects_Data';
 
-// Define the structure for the dynamic image imports
+
 interface ImageModule {
-  default: string; // The URL of the image
+  default: string;
 }
 
 const ProjectDetails: React.FC = () => {
-  // Get the projectSlug from the URL parameters
+
   const { projectSlug } = useParams<{ projectSlug: string }>();
   const [project, setProject] = useState<Project | undefined>(undefined);
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Find the project data based on the slug
+
     const foundProject = projects_data.find(p => p.slug === projectSlug);
     setProject(foundProject);
 
     if (foundProject) {
-      // Dynamically import all images from the project's specific folder
-      // Using glob with eager: true imports all matching files immediately
-      // The path needs to be partially static for glob to work correctly.
-      // We glob all images under sub_images/*/* and then filter by the project ID.
       const allSubImages = import.meta.glob<ImageModule>('/public/sub_images/*/*.(png|jpg|jpeg|gif)', { eager: true });
 
       const projectImages: string[] = [];
@@ -32,7 +28,6 @@ const ProjectDetails: React.FC = () => {
 
       for (const path in allSubImages) {
         if (path.startsWith(projectImagesPathPrefix)) {
-          // Remove the /public prefix from the image URL
           const imageUrl = allSubImages[path].default.replace('/public', '');
           projectImages.push(imageUrl);
         }
@@ -42,7 +37,7 @@ const ProjectDetails: React.FC = () => {
     }
 
     setLoading(false);
-  }, [projectSlug]); // Re-run effect if projectSlug changes
+  }, [projectSlug]);
 
   if (loading) {
     return <div className="container mx-auto p-4 text-center">Loading...</div>;
@@ -71,13 +66,17 @@ const ProjectDetails: React.FC = () => {
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Project Images</h2>
         {images.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          // Updated container for a masonry-like layout using CSS Columns
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-x-6">
             {images.map((imageUrl, index) => (
-              <div key={index} className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+              // Added break-inside-avoid-column to prevent items from splitting across columns
+              // Added mb-6 for vertical spacing between items in a column
+              <div key={index} className="break-inside-avoid-column mb-6 bg-gray-100 rounded-lg overflow-hidden shadow-md">
                 <img
                   src={imageUrl}
                   alt={`${project.title} image ${index + 1}`}
-                  className="w-full h-auto object-cover"
+                  // Added `block` display to the image for better layout control
+                  className="w-full h-auto object-cover block"
                 />
               </div>
             ))}
