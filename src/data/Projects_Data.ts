@@ -242,14 +242,6 @@ export const projects_data: Project[] = [
     slug: 'gallery-89'
   },
   {
-    id: '88',
-    title: '강일동 다가구주택 부지',
-    category: '인테리어',
-    imageUrl: undefined, // No image
-    description: '면적: 180m2, 지상4층',
-    slug: 'gallery-88'
-  },
-  {
     id: '90',
     title: '화성시 남양 전원주택단지',
     category: '인테리어',
