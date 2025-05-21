@@ -9,7 +9,7 @@ const AboutSection: React.FC = () => {
       <div className="flex flex-col space-y-4">
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1532370778713-1400f3d62094?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=800&auto=format&fit=crop)' }}
+          style={{ backgroundImage: 'url(/about/photo1.avif)' }}
           aria-label="조사분석 도면 및 설계 분석 예시 (Unsplash)"
         >
           <span className="sr-only">조사분석 도면 및 설계 분석 예시 (Unsplash)</span>
@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
       <div className="flex flex-col space-y-4">
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1620374476350-b7c1eabcc131?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=600&q=80)' }}
+          style={{ backgroundImage: 'url(/about/photo2.avif)' }}
           aria-label="설계 및 감리 현대 건축물 (Unsplash)"
         >
           <span className="sr-only">설계 및 감리 현대 건축물 (Unsplash)</span>
@@ -69,7 +69,7 @@ const AboutSection: React.FC = () => {
       <div className="flex flex-col space-y-4">
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&w=600&q=80)' }}
+          style={{ backgroundImage: 'url(/about/photo3.avif)' }}
           aria-label="유지보수 및 리노베이션 현장 (Unsplash)"
         >
           <span className="sr-only">유지보수 및 리노베이션 현장 (Unsplash)</span>
@@ -104,7 +104,7 @@ const AboutSection: React.FC = () => {
         <div className="relative mb-16 overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-600/80 z-10"></div>
           <img 
-            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1955&auto=format&fit=crop" 
+            src="/about/about.avif" 
             alt="Modern architectural building exterior" 
             className="absolute inset-0 w-full h-full object-cover" 
           />
