@@ -21,22 +21,42 @@ const ProjectDetails: React.FC = () => {
     setProject(foundProject);
 
     if (foundProject) {
-      const allSubImages = import.meta.glob<ImageModule>('/public/sub_images/*/*.(png|jpg|jpeg|gif)', { eager: true });
-
-      const projectImages: string[] = [];
-      const projectImagesPathPrefix = `/public/sub_images/${foundProject.id}/`;
-
-      for (const path in allSubImages) {
-        if (path.startsWith(projectImagesPathPrefix)) {
-          const imageUrl = allSubImages[path].default.replace('/public', '');
-          projectImages.push(imageUrl);
+      // Dynamic import with a clear pattern for Vite to understand
+      // This approach works better for assets in the src directory
+      const loadImages = async () => {
+        try {
+          // Use import.meta.glob with eager: false for dynamic imports
+          const imageModules = import.meta.glob<ImageModule>('/src/sub_images/*/*.(png|jpg|jpeg|gif)');
+          const projectPrefix = `/src/sub_images/${foundProject.id}/`;
+          
+          const loadedImages: string[] = [];
+          
+          // Load each matching image asynchronously
+          for (const path in imageModules) {
+            if (path.startsWith(projectPrefix)) {
+              console.log('Loading image:', path);
+              try {
+                const module = await imageModules[path]();
+                console.log('Loaded image URL:', module.default);
+                loadedImages.push(module.default);
+              } catch (err) {
+                console.error('Error loading image', path, err);
+              }
+            }
+          }
+          
+          setImages(loadedImages);
+        } catch (error) {
+          console.error('Error loading images:', error);
+        } finally {
+          setLoading(false);
         }
-      }
-
-      setImages(projectImages);
+      };
+      
+      loadImages();
+    } else {
+      setLoading(false);
     }
-
-    setLoading(false);
   }, [projectSlug]);
 
   if (loading) {
