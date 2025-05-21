@@ -10,9 +10,9 @@ const AboutSection: React.FC = () => {
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
           style={{ backgroundImage: 'url(/about/photo1.avif)' }}
-          aria-label="조사분석 도면 및 설계 분석 예시 (Unsplash)"
+          aria-label="조사분석 도면 및 설계 분석 예시"
         >
-          <span className="sr-only">조사분석 도면 및 설계 분석 예시 (Unsplash)</span>
+          <span className="sr-only">조사분석 도면 및 설계 분석 예시</span>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-4 text-white">
             <h4 className="text-xl font-bold">조사분석</h4>
@@ -40,9 +40,9 @@ const AboutSection: React.FC = () => {
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
           style={{ backgroundImage: 'url(/about/photo2.avif)' }}
-          aria-label="설계 및 감리 현대 건축물 (Unsplash)"
+          aria-label="설계 및 감리 현대 건축물"
         >
-          <span className="sr-only">설계 및 감리 현대 건축물 (Unsplash)</span>
+          <span className="sr-only">설계 및 감리 현대 건축물</span>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-4 text-white">
             <h4 className="text-xl font-bold">설계 & 감리</h4>
@@ -70,9 +70,9 @@ const AboutSection: React.FC = () => {
         <div
           className="w-full h-48 rounded-xl bg-center bg-cover shadow-lg relative overflow-hidden transform transition-transform hover:scale-[1.02]"
           style={{ backgroundImage: 'url(/about/photo3.avif)' }}
-          aria-label="유지보수 및 리노베이션 현장 (Unsplash)"
+          aria-label="유지보수 및 리노베이션 현장"
         >
-          <span className="sr-only">유지보수 및 리노베이션 현장 (Unsplash)</span>
+          <span className="sr-only">유지보수 및 리노베이션 현장</span>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-4 text-white">
             <h4 className="text-xl font-bold">유지관리</h4>
