@@ -57,7 +57,7 @@ const ContactSection: React.FC = () => {
         <div className="inner">
           <ul className="company-info grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <ContactInfoItem dt="ADDRESS" dd="서울시 강남구 삼성동 10-9 도안빌딩 2층전관" />
-            <ContactInfoItem dt="EMAIL" dd={<a href="mailto:info@eulz.co.kr" className="hover:text-blue-500">info@eulz.co.kr</a>} aosDelay="150" />
+            <ContactInfoItem dt="EMAIL" dd={<a href="mailto:eulz8194@naver.com" className="hover:text-blue-500">eulz8194@naver.com</a>} aosDelay="150" />
             <ContactInfoItem dt="TEL" dd={<a href="tel:02-511-8194" className="hover:text-blue-500">02-511-8194</a>} aosDelay="300" />
           </ul>
 
